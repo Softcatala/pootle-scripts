@@ -1,4 +1,10 @@
-cd /var/lib/pootle/hg/
+export ENVDIR=/home/pootle/env
+export HGDIR=/home/pootle/hg
+export PODIR=/home/pootle/po 
+
+source $ENVDIR/bin/activate
+
+cd $HGDIR
 
 # Obte les traduccions actuals de Mozilla
 #-----------------------------------------
@@ -50,19 +56,19 @@ moz2po -t l10n/en-US -i l10n/it -o po/it
 
 # Carrega els PO al pootle
 #---------------------------------------
-rm -fr /var/lib/pootle/Pootle/po/mozilla/es-ES
-cp -r po/es-ES /var/lib/pootle/Pootle/po/mozilla/
-../Pootle/manage.py update_stores --project=mozilla --language=es-ES
-../Pootle/manage.py refresh_stats --project=mozilla --language=es-ES
+rm -fr $PODIR/mozilla/es-ES
+cp -r po/es-ES $PODIR/mozilla/
+pootle update_stores --project=mozilla --language=es-ES
+pootle refresh_stats --project=mozilla --language=es-ES
 
-rm -fr /var/lib/pootle/Pootle/po/mozilla/fr
-cp -r po/fr /var/lib/pootle/Pootle/po/mozilla/
-../Pootle/manage.py update_stores --project=mozilla --language=fr
-../Pootle/manage.py refresh_stats --project=mozilla --language=fr
+rm -fr $PODIR/mozilla/fr
+cp -r po/fr $PODIR/mozilla/
+pootle update_stores --project=mozilla --language=fr
+pootle refresh_stats --project=mozilla --language=fr
 
-rm -fr /var/lib/pootle/Pootle/po/mozilla/it
-cp -r po/it /var/lib/pootle/Pootle/po/mozilla/
-../Pootle/manage.py update_stores --project=mozilla --language=it
-../Pootle/manage.py refresh_stats --project=mozilla --language=it
+rm -fr $PODIR/mozilla/it
+cp -r po/it $PODIR/mozilla/
+pootle update_stores --project=mozilla --language=it
+pootle refresh_stats --project=mozilla --language=it
 
 

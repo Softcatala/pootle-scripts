@@ -1,5 +1,10 @@
-cd /var/lib/pootle/hg/
+export ENVDIR=/home/pootle/env
+export HGDIR=/home/pootle/hg
+export PODIR=/home/pootle/po 
 
+source $ENVDIR/bin/activate
+
+cd $HGDIR
 
 # Fa copia de seguretat i ho borra tot
 #-----------------------------------------
@@ -39,18 +44,18 @@ moz2po -t l10n-gaia/en-US -i l10n-gaia/it -o po-gaia/it
 
 # Carrega els PO al pootle
 #---------------------------------------
-rm -fr /var/lib/pootle/Pootle/po/gaia/es
-cp -r po-gaia/es /var/lib/pootle/Pootle/po/gaia/
-../Pootle/manage.py update_stores --project=gaia --language=es
-../Pootle/manage.py refresh_stats --project=gaia --language=es
+rm -fr $PODIR/gaia/es
+cp -r po-gaia/es $PODIR/gaia/
+pootle update_stores --project=gaia --language=es
+pootle refresh_stats --project=gaia --language=es
 
-rm -fr /var/lib/pootle/Pootle/po/gaia/fr
-cp -r po-gaia/fr /var/lib/pootle/Pootle/po/gaia/
-../Pootle/manage.py update_stores --project=gaia --language=fr
-../Pootle/manage.py refresh_stats --project=gaia --language=fr
+rm -fr $PODIR/gaia/fr
+cp -r po-gaia/fr $PODIR/gaia/
+pootle update_stores --project=gaia --language=fr
+pootle refresh_stats --project=gaia --language=fr
 
-rm -fr /var/lib/pootle/Pootle/po/gaia/it
-cp -r po-gaia/it /var/lib/pootle/Pootle/po/gaia/
-../Pootle/manage.py update_stores --project=gaia --language=it
-../Pootle/manage.py refresh_stats --project=gaia --language=it
+rm -fr $PODIR/gaia/it
+cp -r po-gaia/it $PODIR/gaia/
+pootle update_stores --project=gaia --language=it
+pootle refresh_stats --project=gaia --language=it
 
