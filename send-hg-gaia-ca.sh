@@ -26,6 +26,6 @@ po2moz -t l10n-gaia/en-US -i $PODIR/gaia/ca/ -o l10n-gaia/ca
 # El resultat el deixa a l10n/out.tgz
 #-------------------------------------
 tar -cvzf l10n-gaia/ca-out.tgz  --exclude=.hg --exclude=.hgtags l10n-gaia/ca
-tar -cvzf l10n-gaia/ca-po-out.tgz --exclude=.translation_index ../Pootle/po/gaia/ca
+tar -cvzf l10n-gaia/ca-po-out.tgz --exclude=.translation_index $PODIR/gaia/ca
 
 
