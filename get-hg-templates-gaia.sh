@@ -26,5 +26,5 @@ rm -fr $PODIR/gaia/templates
 cp -r po-gaia/templates $PODIR/gaia/
 pootle update_stores --project=gaia --language=templates
 pootle refresh_stats --project=gaia --language=templates
-pootle update_from_templates --directory=gaia/ca
+pootle update_against_templates --directory=gaia/ca
 
