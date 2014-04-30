@@ -1,9 +1,11 @@
 #!/bin/sh
 
-BACKUPDIR=/var/www/mozilla.cat/pootle/mozilla/an
-PODIR=/var/lib/pootle/Pootle/po/mozilla/an
-POOTLEDIR=/var/lib/pootle/Pootle/
-HGDIR=/var/lib/pootle/hg
+BACKUPDIR=/var/www/mozilla.cat/pootle/gaia/ca
+export ENVDIR=/home/pootle/env
+export HGDIR=/home/pootle/hg
+export PODIR=/home/pootle/po 
+
+source $ENVDIR/bin/activate
 
 cd $HGDIR
 
