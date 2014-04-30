@@ -1,3 +1,5 @@
+OUTPATH=/var/www/mozilla.cat/pootle/mozilla/an/xpi
+
 CC=gcc-4.7
 CXX=g++-4.7
 
@@ -63,5 +65,5 @@ rm -rf browser/defaults
 rm -rf browser/searchplugins
 rm $LASTFFXPI
 zip -r $LASTFFXPI chrome.manifest install.rdf browser chrome
-cp $LASTFFXPI /var/www/mozilla.cat/pootle/mozilla/an/xpi/$LASTFFXPIOUT
+cp $LASTFFXPI $OUTPATH/$LASTFFXPIOUT
 

@@ -1,4 +1,10 @@
-cd /var/lib/pootle/hg/
+export ENVDIR=/home/pootle/env
+export HGDIR=/home/pootle/hg
+export PODIR=/home/pootle/po 
+
+source $ENVDIR/bin/activate
+
+cd $HGDIR
 
 # Obte les traduccions actuals de Mozilla
 #-----------------------------------------

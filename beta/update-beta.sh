@@ -1,3 +1,5 @@
+OUTPATH=/var/www/mozilla.cat/pootle/mozilla/ca-valencia/xpi
+
 CC=gcc-4.7
 CXX=g++-4.7
 
@@ -160,7 +162,7 @@ rm -rf suite/defaults
 rm -rf suite/searchplugins
 rm $LASTSMXPI
 zip -r $LASTSMXPI chrome.manifest install.rdf mail chrome
-cp $LASTSMXPI /var/www/mozilla.cat/pootle/mozilla/ca-valencia/xpi/$LASTSMXPIOUT
+cp $LASTSMXPI $OUTPATH/$LASTSMXPIOUT
 
 
 
