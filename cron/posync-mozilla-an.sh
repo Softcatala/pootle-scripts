@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-BACKUPDIR=/var/www/mozilla.cat/pootle/gaia/ca
+BACKUPDIR=/var/www/mozilla.cat/pootle/mozilla/an
 export ENVDIR=/home/pootle/env
 export HGDIR=/home/pootle/hg
 export PODIR=/home/pootle/po 

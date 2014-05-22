@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 BACKUPDIR=/var/www/mozilla.cat/pootle/mozilla/ca
 BACKUPDIRGAIA=/var/www/mozilla.cat/pootle/gaia/ca
