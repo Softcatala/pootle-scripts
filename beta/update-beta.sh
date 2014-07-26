@@ -1,5 +1,3 @@
-OUTPATH=/var/www/mozilla.cat/pootle/mozilla/ca-valencia/xpi
-
 CC=gcc-4.7
 CXX=g++-4.7
 
@@ -85,7 +83,8 @@ cd valencia
 cd config
 make
 cd ../browser/locales
-make langpack-ca-valencia
+make merge-ca-valencia LOCALE_MERGEDIR=./mergedir
+make langpack-ca-valencia LOCALE_MERGEDIR=./mergedir
 
 cd $base
 LASTFFXPI=`ls -lrt mozilla-$VERSION/valencia/dist/linux-x86_64/xpi | awk '{ f=$NF }; END{ print f }'`
@@ -113,7 +112,8 @@ cd valencia
 cd mozilla/config
 make
 cd ../../mail/locales
-make langpack-ca-valencia
+make merge-ca-valencia LOCALE_MERGEDIR=./mergedir
+make langpack-ca-valencia LOCALE_MERGEDIR=./mergedir
 
 cd $base
 LASTTBXPI=`ls -lrt comm-$VERSION/valencia/mozilla/dist/linux-x86_64/xpi | awk '{ f=$NF }; END{ print f }'`
@@ -144,7 +144,8 @@ cd valencia
 cd mozilla/config
 make
 cd ../../suite/locales
-make langpack-ca-valencia
+make merge-ca-valencia LOCALE_MERGEDIR=./mergedir
+make langpack-ca-valencia LOCALE_MERGEDIR=./mergedir
 
 cd $base
 LASTSMXPI=`ls -lrt comm-$VERSION/valencia/mozilla/dist/linux-x86_64/xpi | awk '{ f=$NF }; END{ print f }'`
@@ -162,7 +163,7 @@ rm -rf suite/defaults
 rm -rf suite/searchplugins
 rm $LASTSMXPI
 zip -r $LASTSMXPI chrome.manifest install.rdf mail chrome
-cp $LASTSMXPI $OUTPATH/$LASTSMXPIOUT
+cp $LASTSMXPI /var/www/mozilla.cat/pootle/mozilla/ca-valencia/xpi/$LASTSMXPIOUT
 
 
 
