@@ -1,3 +1,5 @@
+OUTPATH=/var/www/mozilla.cat/pootle/mozilla/ca-valencia/xpi
+
 CC=gcc-4.7
 CXX=g++-4.7
 
@@ -102,7 +104,7 @@ rm -rf browser/defaults
 rm -rf browser/searchplugins
 rm $LASTFFXPI
 zip -r $LASTFFXPI chrome.manifest install.rdf browser chrome
-cp $LASTFFXPI /var/www/mozilla.cat/pootle/mozilla/ca-valencia/xpi/$LASTFFXPIOUT
+cp $LASTFFXPI $OUTPATH/$LASTFFXPIOUT
 
 cd $base
 cd comm-$VERSION
@@ -131,7 +133,7 @@ rm -rf mail/defaults
 rm -rf mail/searchplugins
 rm $LASTTBXPI
 zip -r $LASTTBXPI chrome.manifest install.rdf mail chrome
-cp $LASTTBXPI /var/www/mozilla.cat/pootle/mozilla/ca-valencia/xpi/$LASTTBXPIOUT
+cp $LASTTBXPI $OUTPATH/$LASTTBXPIOUT
 
 #SeaMonkey
 cd $base
@@ -163,7 +165,7 @@ rm -rf suite/defaults
 rm -rf suite/searchplugins
 rm $LASTSMXPI
 zip -r $LASTSMXPI chrome.manifest install.rdf mail chrome
-cp $LASTSMXPI /var/www/mozilla.cat/pootle/mozilla/ca-valencia/xpi/$LASTSMXPIOUT
+cp $LASTSMXPI $OUTPATH/$LASTSMXPIOUT
 
 
 
