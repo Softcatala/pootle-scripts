@@ -32,16 +32,11 @@ rm -rf po/ca
 # Crea estructura  l10n/en-US
 #----------------------------------------
 get_moz_enUS.py -s mozilla-$VERSION -d l10n -p browser
-get_moz_enUS.py -s mozilla-$VERSION -d l10n -p mobile
 get_moz_enUS.py -s comm-$VERSION -d l10n -p mail
-get_moz_enUS.py -s comm-$VERSION -d l10n -p suite
 get_moz_enUS.py -s comm-$VERSION -d l10n -p calendar
 #Patch irc
 mkdir -p l10n/en-US/extensions/irc
 cp -rf comm-$VERSION/mozilla/extensions/irc/locales/en-US/* l10n/en-US/extensions/irc
-#Patch venkman
-mkdir -p l10n/en-US/extensions/venkman
-cp -rf comm-$VERSION/mozilla/extensions/venkman/locales/en-US/* l10n/en-US/extensions/venkman
 
 # Crea fitxers PO catalans  a po/ca
 #-----------------------------------------
@@ -64,8 +59,6 @@ po2moz -t l10n/en-US -i po/ca-valencia -o l10n/ca-valencia
 
 cp -rf l10n/ca/browser/searchplugins/* l10n/ca-valencia/browser/searchplugins
 cp -rf l10n/ca/mail/searchplugins/* l10n/ca-valencia/mail/searchplugins
-cp -rf l10n/ca/mobile/searchplugins/* l10n/ca-valencia/mobile/searchplugins
-cp -rf l10n/ca/suite/searchplugins/* l10n/ca-valencia/suite/searchplugins
 
 #Process files
 perl po/processMozFile.pl l10n/ca-valencia/browser/chrome/browser/browser.dtd dtd savePageCmd.accesskey2 "d"
@@ -134,39 +127,6 @@ rm -rf mail/searchplugins
 rm $LASTTBXPI
 zip -r $LASTTBXPI chrome.manifest install.rdf mail chrome
 cp $LASTTBXPI $OUTPATH/$LASTTBXPIOUT
-
-#SeaMonkey
-cd $base
-cp -f po/mozilla/mozconfig-seamonkey comm-$VERSION/.mozconfig
-
-cd comm-$VERSION
-rm -rf valencia
-make -f client.mk configure
-cd valencia
-cd mozilla/config
-make
-cd ../../suite/locales
-make merge-ca-valencia LOCALE_MERGEDIR=./mergedir
-make langpack-ca-valencia LOCALE_MERGEDIR=./mergedir
-
-cd $base
-LASTSMXPI=`ls -lrt comm-$VERSION/valencia/mozilla/dist/linux-x86_64/xpi | awk '{ f=$NF }; END{ print f }'`
-LASTSMXPIOUT=$LASTSMXPI.$DATE.xpi
-perl po/modifyMaxMin-sm.pl comm-$VERSION/valencia/mozilla/dist/linux-x86_64/xpi/$LASTSMXPI
-cd comm-$VERSION/valencia/mozilla/dist/linux-x86_64/xpi
-rm -rf tmp
-mkdir tmp
-cp $LASTSMXPI tmp
-cd tmp
-unzip $LASTSMXPI
-find . -name ".mkdir.done" | xargs rm
-rm -rf suite/crashreporter-override.ini
-rm -rf suite/defaults
-rm -rf suite/searchplugins
-rm $LASTSMXPI
-zip -r $LASTSMXPI chrome.manifest install.rdf mail chrome
-cp $LASTSMXPI $OUTPATH/$LASTSMXPIOUT
-
 
 
 
