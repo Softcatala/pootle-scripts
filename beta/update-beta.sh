@@ -102,6 +102,11 @@ cp $LASTFFXPI $OUTPATH/$LASTFFXPIOUT
 cd $base
 cd comm-$VERSION
 rm -rf valencia
+# Start hack (sic)
+cd mozilla
+ln -s ../valencia .
+cd ..
+# End Hack (sic)
 make -f client.mk configure
 cd valencia
 cd mozilla/config
