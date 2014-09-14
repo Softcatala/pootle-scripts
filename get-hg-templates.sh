@@ -22,6 +22,7 @@ cd ..
 # Esborra previ
 #-----------------------------------------
 rm -rf po/templates
+rm -rf l10n/en-US
 
 # Crea estructura  l10n/en-US
 #----------------------------------------
