@@ -1,6 +1,6 @@
 #ac_add_options --disable-compile-environment
 
-mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/valencia
+mk_add_options MOZ_OBJDIR=/home/pootle/hg/beta/mozobj/firefox-valencia
 ac_add_options --disable-libjpeg-turbo
 
 ac_add_options --with-l10n-base=/var/lib/pootle/hg/beta/l10n

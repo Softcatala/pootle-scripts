@@ -1,5 +1,7 @@
 OUTPATH=/var/www/mozilla.cat/pootle/mozilla/ca-valencia/xpi
 
+OBJFF=/home/pootle/hg/beta/mozobj/firefox-valencia
+
 CC=gcc-4.7
 CXX=g++-4.7
 
@@ -71,10 +73,8 @@ cp -f po/mozilla/mozconfig-thunderbird comm-$VERSION/.mozconfig
 
 base=`pwd` 
 
-cd mozilla-$VERSION
-rm -rf valencia
-make -f client.mk configure
-cd valencia
+cd $OBJFF
+make -f ../../mozilla-$VERSION/client.mk configure
 cd config
 make
 cd ../browser/locales
@@ -82,10 +82,10 @@ make merge-ca-valencia LOCALE_MERGEDIR=./mergedir
 make langpack-ca-valencia LOCALE_MERGEDIR=./mergedir
 
 cd $base
-LASTFFXPI=`ls -lrt mozilla-$VERSION/valencia/dist/linux-x86_64/xpi | awk '{ f=$NF }; END{ print f }'`
+LASTFFXPI=`ls -lrt $OBJFF/dist/linux-x86_64/xpi | awk '{ f=$NF }; END{ print f }'`
 LASTFFXPIOUT=$LASTFFXPI.$DATE.xpi
-perl po/modifyMaxMin.pl mozilla-$VERSION/valencia/dist/linux-x86_64/xpi/$LASTFFXPI
-cd mozilla-$VERSION/valencia/dist/linux-x86_64/xpi
+perl po/modifyMaxMin.pl $OBJFF/dist/linux-x86_64/xpi/$LASTFFXPI
+cd $OBJFF/dist/linux-x86_64/xpi
 rm -rf tmp
 mkdir tmp
 cp $LASTFFXPI tmp
