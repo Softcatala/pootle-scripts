@@ -16,7 +16,7 @@ Per tal de funcionar calen els directoris:
 * mozilla-beta: amb codi arrel de la branca beta - https://hg.mozilla.org/releases/mozilla-beta/
 * comm-beta: amb codi arrel de branca beta - https://hg.mozilla.org/releases/comm-beta/
 * l10n
-** ca: http://hg.mozilla.org/releases/l10n/mozilla-beta/ca/
-** en-US: generat per l'script
-** ca-valencia: generat per l'script
+  * ca: http://hg.mozilla.org/releases/l10n/mozilla-beta/ca/
+  * en-US: generat per l'script
+  * ca-valencia: generat per l'script
 
