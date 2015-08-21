@@ -20,3 +20,13 @@ Per tal de funcionar calen els directoris:
   * en-US: generat per l'script
   * ca-valencia: generat per l'script
 
+Cal tenir en el directori po que es genera els fitxers:
+* processMozFile.pl
+* modifyMaxMin.pl
+
+i els fitxers del repositori: https://github.com/Softcatala/adaptadorvariants/tree/master/tools/mozilla
+
+* recorre_les_fonts-moz
+* src2valencia-moz.sed
+
+
